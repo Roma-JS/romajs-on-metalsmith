@@ -5,7 +5,7 @@ branches:
   only:
   - master
 script:
-  - npm build
+  - npm run build
 after_success:
   - sh publish_on_github.sh
 env:
