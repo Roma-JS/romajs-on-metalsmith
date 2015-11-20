@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- '4.1'
+branches:
+  only:
+  - master
+script:
+  - npm build
+after_success:
+  - sh publish_on_github.sh
+env:
+  global:
+    secure: SMU5W4JuftCd6WPhdEsuQlek2lqLu/4MQqRopmnWUZfCjUk68OjDcnZ8sMQpsFaR99U2InylDzRZoB3tWkChlsp70LSHxV56ex43CiAUGMm//3tnDAopbzzEpRufcjaWsoP9g0g+GFy4HpbKLnzW6NoPaXGomxx568H+5trLLBQi0n1usr6C7q5jp0DZjGkIYhGlRAMft33VuH6Ex40Uy/rKI0DcG6Ue7LjhAEinkmjX2whigE9xIUqmvisMr+zdgItZtBFCfw8GX1lbzCcs8azlFwPcf0i/Z+hSP+JoPgAa2s73Gy4mvjAov1Vwk+8yshTokxO8QsbHb6K6u/R2QfqYgg0zmj0hCFnAttWdLMwaY63XcrXW9ILJ8GaQ0lu9UgB6wzwHwsr5SUjx1jcamXA7b/dSPcHNuzXHAfPI5QHbOjM2A48Ur++lyTENi0tBS8wCGlnRnc7vXDKayZ0VOud+ieNHgEGz9ovq1v2qVRMCSry2CYN5gprXnU1fVwQUlNlBZ0IRB6dtEf7FfTsYEBcIg/Mxkrgte6kuTMnPh6nWYvIAQHvjZ1lKRygzdDLTL7GILbzbScT4R/Xv2rVN8JUPVM4BQobatqnn1G24w8JiWwGqcdCbkcAchyGH73iA3s9IB363JU04oNDV81I1pfHsKZx78qaJ33aNPhV9B7s=
