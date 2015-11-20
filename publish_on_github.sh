@@ -8,7 +8,8 @@ GITHUB_EMAIL='luca@lanziani.com'
 GITHUB_MESSAGE='Travis deploy'
 GITHUB_REF='github.com:Roma-JS/roma-js.github.io.git'
 
-if [ ${TRAVIS} ]; then 
+
+if [[ ${TRAVIS} == true ]]; then 
   # go to the out directory and create a *new* Git repo
   cd ${OUTPUTDIR}
   git init
@@ -22,7 +23,7 @@ if [ ${TRAVIS} ]; then
   git add .
   git commit -m "${GITHUB_MESSAGE}"
 
-  if [ ! ${TRAVIS_PULL_REQUEST} ]; then
+  if [[ ${TRAVIS_PULL_REQUEST} == false ]]; then
     # Force push from the current repo's master branch to the remote
     # repo's gh-pages branch. (All previous history on the gh-pages branch
     # will be lost, since we are overwriting it.) We redirect any output to
