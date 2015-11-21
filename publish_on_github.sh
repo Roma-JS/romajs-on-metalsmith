@@ -6,7 +6,7 @@ OUTPUTDIR='build'
 GITHUB_USERNAME='Travis CI'
 GITHUB_EMAIL='luca@lanziani.com'
 GITHUB_MESSAGE='Travis deploy'
-GITHUB_REF='github.com:Roma-JS/roma-js.github.io.git'
+GITHUB_REF='github.com/Roma-JS/roma-js.github.io.git'
 
 
 if [[ ${TRAVIS} == true ]]; then 
