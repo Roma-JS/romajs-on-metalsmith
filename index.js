@@ -5,6 +5,8 @@ var Metalsmith  = require('metalsmith'),
   permalink     = require('metalsmith-permalinks'),
   layouts       = require('metalsmith-layouts'),
   serve         = require('metalsmith-serve'),
+  sass          = require('metalsmith-sass'),
+  assets        = require('metalsmith-assets'),
   collections   = require('metalsmith-collections');
 
 var m = Metalsmith(__dirname)
@@ -23,6 +25,15 @@ var m = Metalsmith(__dirname)
   .use(layouts({
     'engine': 'handlebars',
     partials: 'partials'
+  }))
+  .use(assets({
+    source: 'src/assets', // relative to the working directory 
+    destination: './assets' // relative to the build directory 
+  }))
+  // Process css
+  .use(sass({
+    sourceMap: true,
+    sourceMapContents: true
   }))
   .destination('./build');
 
