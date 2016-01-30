@@ -4,3 +4,22 @@
 ul {
   list-style-type: none;
 }
+
+
+.header-title {
+  display: inline;
+}
+
+.page-header {
+  .header-title {
+    margin-left: 25px;
+  }
+
+  .logo {
+    text-decoration: none;
+  }
+
+  img {
+    vertical-align: text-bottom;
+  }
+}

@@ -1,15 +1,17 @@
-<nav>
-  <ul>
+
+<nav role="navigation">
+  <h3>Pages</h3>
+  <ul class="list-unstyled">
     <li><a href="/">Romajs</a></li>
-    <li>Pages
-      <ul>
+    <ul class="list-unstyled">
         {{#each collections.pages}}
           <li><a href="/{{path}}">{{title}}</a></li>
         {{/each}}
-      </ul>
-    </li>
+    </ul>
   </ul>
 </nav>
+
+
 <div style="display: none">
 {{#each collections}}
   <li>
