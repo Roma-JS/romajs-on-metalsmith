@@ -1,0 +1,17 @@
+<nav>
+  <ul>
+    <li><a href="/">Romajs</a></li>
+    {{#each collections}}
+      <li>
+        <a href="#">{{@key}} <span class="carret"></span></a>
+          <div>
+            <ul>
+              {{#each this}}
+                <li><a href="{{path}}">{{title}}</a></li>
+              {{/each}}
+            </ul>
+          </div>
+      </li>
+    {{/each}}
+  </ul>
+</nav>
