@@ -1,12 +1,22 @@
 require('harmonize')();
 
+var socials = {
+  'facebook-square': 'https://www.facebook.com/romajs.org',
+  'twitter-square': 'https://twitter.com/roma_js',
+  'youtube-square': 'https://www.youtube.com/channel/UCFm8OPi5USbFybw9SaTLxeA',
+  'slack': 'https://romajs.herokuapp.com/',
+  'github': 'https://github.com/Roma-JS',
+  'google-plus-square': 'https://plus.google.com/communities/114324393897443067092'
+};
+
 var Metalsmith  = require('metalsmith'),
-  markdown      = require('metalsmith-markdown'),
-  permalink     = require('metalsmith-permalinks'),
-  layouts       = require('metalsmith-layouts'),
-  serve         = require('metalsmith-serve'),
   sass          = require('metalsmith-sass'),
+  serve         = require('metalsmith-serve'),
   assets        = require('metalsmith-assets'),
+  layouts       = require('metalsmith-layouts'),
+  inPlace       = require('metalsmith-in-place'),
+  markdown      = require('metalsmith-markdown'),
+  permalinks    = require('metalsmith-permalinks'),
   collections   = require('metalsmith-collections');
 
 var m = Metalsmith(__dirname)
@@ -19,16 +29,32 @@ var m = Metalsmith(__dirname)
     }
   }))
   .use(markdown())
-  .use(permalink({
-    pattern: ':collection/:date/:title'
+  .use(permalinks({
+    pattern: ':title',
+    linksets: [{
+      match: {collection: 'posts'},
+      pattern: 'blog/:date/:title'
+    }]
   }))
+  .use(function(files, metalsmith, done) {
+    var meta = metalsmith.metadata();
+    meta.socials = socials;
+    done();
+  })
   .use(layouts({
-    'engine': 'handlebars',
+    engine: 'handlebars',
     partials: 'partials'
+  }))
+  .use(inPlace({
+    engine: 'handlebars'
   }))
   .use(assets({
     source: 'src/assets', // relative to the working directory 
     destination: './assets' // relative to the build directory 
+  }))
+  .use(assets({
+    source: 'node_modules/font-awesome/fonts',
+    destination: './assets/fonts'
   }))
   // Process css
   .use(sass({
