@@ -1,5 +1,5 @@
 ---
-layout: base.hbs
+layout: landing.hbs
 title:  Index Page
 date:   2014-12-01
 permalink: false
