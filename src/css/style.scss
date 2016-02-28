@@ -28,12 +28,12 @@ body {
     text-transform: uppercase;
 
     a {
-      color: $light-gray;
+      color: darken($light-gray, 15%);
       text-decoration: none;
     }
 
     a:hover {
-      color: lighten($light-gray, 20%);
+      color: $light-gray;
     }
   }
 }
@@ -46,6 +46,10 @@ body {
   .our-name > p {
     font-family: $ubuntu;
     font-size: floor(($font-size-h1 * 2));
+  }
+
+  .fa {
+    @extend .fa-4x;
   }
 }
 
@@ -70,5 +74,9 @@ body {
 
 .footer {
   border-top: 1px inset;
-  padding-top: 20px;
+  padding: 20px 0;
+  
+  .fa {
+    @extend .fa-3x;
+  }
 }
