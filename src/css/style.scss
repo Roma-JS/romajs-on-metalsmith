@@ -59,12 +59,28 @@ body {
   a {
     color: $red-romajs;
     margin: 0 20px;
+    position: relative;
 
     :hover {
       color: lighten($red-romajs, 20%);
     }
   }
 }
+
+.fa-meetup{
+  background-image: url('/assets/img/meetup-icon.png');
+  background-size: 70px 70px;
+  background-repeat: no-repeat;
+  width: 70px;
+  height: 70px;
+  display: inline-block;
+  position: absolute;
+  top:3px;
+}
+.fa-meetup:hover{
+  background-image: url('/assets/img/meetup-icon-over.png');
+}
+
 
 .content {
   margin-bottom: 20px;
@@ -75,8 +91,15 @@ body {
 .footer {
   border-top: 1px inset;
   padding: 20px 0;
-  
+
   .fa {
     @extend .fa-3x;
+  }
+
+  .fa-meetup {
+    background-size: 52px 52px;
+    width: 52px;
+    height: 52px;
+    top: -28px;
   }
 }
