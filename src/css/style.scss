@@ -1,25 +1,74 @@
+@import 'vars';
+
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 @import '../../node_modules/bourbon/app/assets/stylesheets/bourbon';
+@import '../../node_modules/font-awesome/scss/font-awesome';
 
-ul {
-  list-style-type: none;
+@import 'colors';
+@import 'fonts';
+
+body {
+  background-color: $light-gray;
+  font-family: $ubuntu;
 }
 
-
-.header-title {
-  display: inline;
+.nav-row {
+  background-color: $graphite;
 }
 
-.page-header {
-  .header-title {
-    margin-left: 25px;
-  }
+.romajs-nav-list {
+  @extend .list-inline;
 
-  .logo {
-    text-decoration: none;
-  }
+  margin-bottom: 0;
+  text-align: center;
 
-  img {
-    vertical-align: text-bottom;
+  > li {
+    font-size: $font-size-h3;
+    margin: 0 20px;
+    text-transform: uppercase;
+
+    a {
+      color: $light-gray;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: lighten($light-gray, 20%);
+    }
   }
+}
+
+.landing-body {
+  margin-bottom: 20px;
+  margin-top: 50px;
+  text-align: center;
+
+  .our-name > p {
+    font-family: $ubuntu;
+    font-size: floor(($font-size-h1 * 2));
+  }
+}
+
+.socials {
+  text-align: center;
+
+  a {
+    color: $red-romajs;
+    margin: 0 20px;
+
+    :hover {
+      color: lighten($red-romajs, 20%);
+    }
+  }
+}
+
+.content {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  min-height: 600px;
+}
+
+.footer {
+  border-top: 1px inset;
+  padding-top: 20px;
 }
