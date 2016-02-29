@@ -67,8 +67,9 @@ body {
 }
 
 .footer {
-  border-top: 1px inset;
-  padding: 20px 0;
+  border-top: 1px solid #eee;
+  padding: 30px 0;
+  margin-top: 16px;
   
   .fa {
     @extend .fa-3x;
