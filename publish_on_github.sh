@@ -24,7 +24,7 @@ if [[ ${TRAVIS} == true ]]; then
   git commit -m "${GITHUB_MESSAGE}"
 
   if [[ ${TRAVIS_BRANCH}="develop" ]]; then
-    GITHUB_REF='github.com/${TRAVIS_REPO_SLUG}.git'
+    GITHUB_REF="github.com/${TRAVIS_REPO_SLUG}.git"
     GITHUB_DESTINATION_BRANCH='gh-pages'
   fi
 
@@ -33,7 +33,7 @@ if [[ ${TRAVIS} == true ]]; then
     # repo's gh-pages branch. (All previous history on the gh-pages branch
     # will be lost, since we are overwriting it.) We redirect any output to
     # /dev/null to hide any sensitive credential data that might otherwise be exposed.
-    git push --force --quiet "https://${GH_TOKEN}@${GITHUB_REF}" master:${GITHUB_DESTINATION_BRANCH} > /dev/null 2>&1
+    git push --force --quiet "https://${GH_TOKEN}@${GITHUB_REF}" master:"${GITHUB_DESTINATION_BRANCH}" > /dev/null 2>&1
   fi
 else
   echo "This makes sense only on travis"
