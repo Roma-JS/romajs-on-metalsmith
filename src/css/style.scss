@@ -43,11 +43,6 @@ body {
   margin-top: 50px;
   text-align: center;
 
-  .our-name > p {
-    font-family: $ubuntu;
-    font-size: floor(($font-size-h1 * 2));
-  }
-
   .fa {
     @extend .fa-4x;
   }
@@ -58,7 +53,6 @@ body {
 
   a {
     color: $red-romajs;
-    margin: 0 20px;
 
     :hover {
       color: lighten($red-romajs, 20%);
