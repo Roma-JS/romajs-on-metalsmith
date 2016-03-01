@@ -1,14 +1,5 @@
 require('harmonize')();
 
-var socials = {
-  'facebook-square': 'https://www.facebook.com/romajs.org',
-  'twitter-square': 'https://twitter.com/roma_js',
-  'youtube-square': 'https://www.youtube.com/channel/UCFm8OPi5USbFybw9SaTLxeA',
-  'slack': 'https://romajs.herokuapp.com/',
-  'github': 'https://github.com/Roma-JS',
-  'google-plus-square': 'https://plus.google.com/communities/114324393897443067092'
-};
-
 var Metalsmith  = require('metalsmith'),
   sass          = require('metalsmith-sass'),
   serve         = require('metalsmith-serve'),
@@ -17,7 +8,8 @@ var Metalsmith  = require('metalsmith'),
   inPlace       = require('metalsmith-in-place'),
   markdown      = require('metalsmith-markdown'),
   permalinks    = require('metalsmith-permalinks'),
-  collections   = require('metalsmith-collections');
+  collections   = require('metalsmith-collections'),
+  myPlugins     = require('./lib/metalsmith-plugins');
 
 var m = Metalsmith(__dirname)
   .use(collections({
@@ -36,11 +28,8 @@ var m = Metalsmith(__dirname)
       pattern: 'blog/:date/:title'
     }]
   }))
-  .use(function(files, metalsmith, done) {
-    var meta = metalsmith.metadata();
-    meta.socials = socials;
-    done();
-  })
+  .use(myPlugins.addSocialsToMetadata)
+  .use(myPlugins.setUrlPrefix)
   .use(layouts({
     engine: 'handlebars',
     partials: 'partials'
