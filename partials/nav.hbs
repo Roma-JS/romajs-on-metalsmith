@@ -1,9 +1,9 @@
 
 <nav role="navigation">
   <ul class="romajs-nav-list">
-    <li><a href="/">Home</a></li>
+    <li><a href="{{urlPrefix}}/">Home</a></li>
     {{#each collections.pages}}
-      <li><a href="/{{path}}">{{title}}</a></li>
+      <li><a href="{{../urlPrefix}}/{{path}}">{{title}}</a></li>
     {{/each}}
   </ul>
 </nav>
