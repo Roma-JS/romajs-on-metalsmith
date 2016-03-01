@@ -29,6 +29,7 @@ var m = Metalsmith(__dirname)
     }]
   }))
   .use(myPlugins.addSocialsToMetadata)
+  .use(myPlugins.setUrlPrefix)
   .use(layouts({
     engine: 'handlebars',
     partials: 'partials'
