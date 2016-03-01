@@ -9,7 +9,7 @@ var Metalsmith  = require('metalsmith'),
   markdown      = require('metalsmith-markdown'),
   permalinks    = require('metalsmith-permalinks'),
   collections   = require('metalsmith-collections'),
-  myPlugins     = require('./metalsmith-plugins');
+  myPlugins     = require('./lib/metalsmith-plugins');
 
 var m = Metalsmith(__dirname)
   .use(collections({
