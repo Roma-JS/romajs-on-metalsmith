@@ -18,15 +18,16 @@ if [[ ${TRAVIS} == true ]]; then
   git config user.name "${GITHUB_USERNAME}"
   git config user.email "${GITHUB_EMAIL}"
 
+  if [[ "${TRAVIS_BRANCH}" = "develop" ]]; then
+    rm CNAME #remove cname if publishing in "CI"
+    GITHUB_REF="github.com/${TRAVIS_REPO_SLUG}.git"
+    GITHUB_DESTINATION_BRANCH='gh-pages'
+  fi
+
   # The first and only commit to this new Git repo contains all the
   # files present with the commit message "Deploy to GitHub Pages".
   git add .
   git commit -m "${GITHUB_MESSAGE}"
-
-  if [[ "${TRAVIS_BRANCH}" = "develop" ]]; then
-    GITHUB_REF="github.com/${TRAVIS_REPO_SLUG}.git"
-    GITHUB_DESTINATION_BRANCH='gh-pages'
-  fi
 
   if [[ ${TRAVIS_PULL_REQUEST} == false ]]; then
     # Force push from the current repo's master branch to the remote
