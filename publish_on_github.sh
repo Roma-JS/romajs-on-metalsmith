@@ -7,7 +7,7 @@ GITHUB_USERNAME='Travis CI'
 GITHUB_EMAIL='luca@lanziani.com'
 GITHUB_MESSAGE='Travis deploy'
 GITHUB_REF='github.com/Roma-JS/roma-js.github.io.git'
-
+GITHUB_DESTINATION_BRANCH='master'
 
 if [[ ${TRAVIS} == true ]]; then 
   # go to the out directory and create a *new* Git repo
@@ -23,12 +23,17 @@ if [[ ${TRAVIS} == true ]]; then
   git add .
   git commit -m "${GITHUB_MESSAGE}"
 
+  if [[ ${TRAVIS_BRANCH}="develop" ]]; then
+    GITHUB_REF="github.com/${TRAVIS_REPO_SLUG}.git"
+    GITHUB_DESTINATION_BRANCH='gh-pages'
+  fi
+
   if [[ ${TRAVIS_PULL_REQUEST} == false ]]; then
     # Force push from the current repo's master branch to the remote
     # repo's gh-pages branch. (All previous history on the gh-pages branch
     # will be lost, since we are overwriting it.) We redirect any output to
     # /dev/null to hide any sensitive credential data that might otherwise be exposed.
-    git push --force --quiet "https://${GH_TOKEN}@${GITHUB_REF}" master:master > /dev/null 2>&1
+    git push --force --quiet "https://${GH_TOKEN}@${GITHUB_REF}" master:"${GITHUB_DESTINATION_BRANCH}" > /dev/null 2>&1
   fi
 else
   echo "This makes sense only on travis"

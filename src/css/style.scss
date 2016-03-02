@@ -19,11 +19,13 @@ body {
 .romajs-nav-list {
   @extend .list-inline;
 
+  height: 50px;
   margin-bottom: 0;
   text-align: center;
 
   > li {
-    font-size: $font-size-h3;
+    font-size: $font-size-h4;
+    line-height: 50px;
     margin: 0 20px;
     text-transform: uppercase;
 
@@ -43,11 +45,6 @@ body {
   margin-top: 50px;
   text-align: center;
 
-  .our-name > p {
-    font-family: $ubuntu;
-    font-size: floor(($font-size-h1 * 2));
-  }
-
   .fa {
     @extend .fa-4x;
   }
@@ -58,7 +55,6 @@ body {
 
   a {
     color: $red-romajs;
-    margin: 0 20px;
 
     :hover {
       color: lighten($red-romajs, 20%);
@@ -73,8 +69,9 @@ body {
 }
 
 .footer {
-  border-top: 1px inset;
-  padding: 20px 0;
+  border-top: 1px solid #eee;
+  padding: 30px 0;
+  margin-top: 16px;
   
   .fa {
     @extend .fa-3x;
