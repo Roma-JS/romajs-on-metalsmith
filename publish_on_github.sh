@@ -23,7 +23,7 @@ if [[ ${TRAVIS} == true ]]; then
   git add .
   git commit -m "${GITHUB_MESSAGE}"
 
-  if [[ ${TRAVIS_BRANCH}="develop" ]]; then
+  if [[ "${TRAVIS_BRANCH}" = "develop" ]]; then
     GITHUB_REF="github.com/${TRAVIS_REPO_SLUG}.git"
     GITHUB_DESTINATION_BRANCH='gh-pages'
   fi
