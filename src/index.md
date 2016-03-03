@@ -1,6 +1,6 @@
 ---
 layout: landing.hbs
-title:  Index Page
+pageTitle:  Home
 date:   2014-12-01
 permalink: false
 ---
