@@ -1,6 +1,7 @@
 ---
 layout: base.hbs
-title:  About
+pageTitle: About
+title: About
 date:   2014-12-01
 founder:
   name: "Gilles Ruppert"
