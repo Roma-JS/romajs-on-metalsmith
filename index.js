@@ -11,11 +11,11 @@ var Metalsmith  = require('metalsmith'),
   collections   = require('metalsmith-collections'),
   excerpts      = require('metalsmith-excerpts'),
   pagination    = require('metalsmith-pagination'),
-  hbs_helpers   = require('metalsmith-register-helpers'),
+  hbsHelpers   = require('metalsmith-register-helpers'),
   myPlugins     = require('./lib/metalsmith-plugins');
 
 var m = Metalsmith(__dirname)
-  .use(hbs_helpers({
+  .use(hbsHelpers({
     directory: 'hbs_helpers'
   }))
   .use(collections({
@@ -27,9 +27,9 @@ var m = Metalsmith(__dirname)
     }
   }))
   .use(markdown({
-    "smartypants": true,
-    "gfm": true,
-    "tables": true
+    'smartypants': true,
+    'gfm': true,
+    'tables': true
   }))
   .use(excerpts())
   .use(permalinks({
@@ -46,7 +46,7 @@ var m = Metalsmith(__dirname)
       first: 'blog/index.html',
       path: 'blog/:num/index.html',
       filter: function (page) {
-        return !page.private
+        return !page.private;
       },
       pageMetadata: {
         title: 'Blog'
