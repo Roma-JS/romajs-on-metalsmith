@@ -3,17 +3,15 @@
     {{{ contents }}}
     
     {{#each pagination.files }}
-      <li class="post">
-          <h2 class="entry-title">
-              <a href="{{toAbsolute this.path }}" rel="bookmark">{{ this.title }}</a>
-          </h2>
-          <article class="entry-summary">
-              {{{ this.excerpt }}}
-          </article>
-          <footer>
-
-              <a href="{{toAbsolute this.path }}" class="button">Read More</a>
-          </footer>
+        <h2 class="entry-title">
+            <a href="{{toAbsolute this.path }}" rel="bookmark">{{ this.title }}</a>
+        </h2>
+        <article class="entry-summary">
+            {{{ this.excerpt }}}
+        </article>
+        <footer>
+          <a href="{{toAbsolute this.path }}" class="button">Read More</a>
+        </footer>
       </li>
     {{/each}}
     
