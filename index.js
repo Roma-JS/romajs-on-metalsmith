@@ -9,6 +9,8 @@ var Metalsmith  = require('metalsmith'),
   markdown      = require('metalsmith-markdown'),
   permalinks    = require('metalsmith-permalinks'),
   collections   = require('metalsmith-collections'),
+  excerpts      = require('metalsmith-excerpts'),
+  pagination    = require('metalsmith-pagination'),
   myPlugins     = require('./lib/metalsmith-plugins');
 
 var m = Metalsmith(__dirname)
@@ -20,13 +22,32 @@ var m = Metalsmith(__dirname)
       pattern: 'content/pages/*.md'
     }
   }))
-  .use(markdown())
+  .use(markdown({
+    "smartypants": true,
+    "gfm": true,
+    "tables": true
+  }))
+  .use(excerpts())
   .use(permalinks({
     pattern: ':title',
     linksets: [{
       match: {collection: 'posts'},
       pattern: 'blog/:date/:title'
     }]
+  }))
+  .use(pagination({
+    'collections.posts': {
+      perPage: 5,
+      layout: 'blog.hbs',
+      first: 'blog/index.html',
+      path: 'blog/:num/index.html',
+      filter: function (page) {
+        return !page.private
+      },
+      pageMetadata: {
+        title: 'Blog'
+      }
+    }
   }))
   .use(myPlugins.addSocialsToMetadata)
   .use(myPlugins.setUrlPrefix)
