@@ -5,21 +5,6 @@
     {{#each collections.pages}}
       <li><a href="{{../urlPrefix}}/{{path}}">{{title}}</a></li>
     {{/each}}
+    <li><a href="{{toAbsolute 'blog'}}">Blog</a></li>
   </ul>
 </nav>
-
-
-<div style="display: none">
-{{#each collections}}
-  <li>
-    <a href="#">{{@key}} <span class="carret"></span></a>
-      <div>
-        <ul>
-          {{#each this}}
-            <li><a href="/{{path}}">{{title}}</a></li>
-          {{/each}}
-        </ul>
-      </div>
-  </li>
-{{/each}}
-</div>
