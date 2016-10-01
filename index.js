@@ -11,9 +11,13 @@ var Metalsmith  = require('metalsmith'),
   collections   = require('metalsmith-collections'),
   excerpts      = require('metalsmith-excerpts'),
   pagination    = require('metalsmith-pagination'),
+  hbs_helpers   = require('metalsmith-register-helpers'),
   myPlugins     = require('./lib/metalsmith-plugins');
 
 var m = Metalsmith(__dirname)
+  .use(hbs_helpers({
+    directory: 'hbs_helpers'
+  }))
   .use(collections({
     posts: {
       pattern: 'content/posts/*.md'

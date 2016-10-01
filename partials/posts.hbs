@@ -5,14 +5,14 @@
     {{#each pagination.files }}
       <li class="post">
           <h2 class="entry-title">
-              <a href="{{ urlPrefix }}/{{ this.path }}" rel="bookmark">{{ this.title }}</a>
+              <a href="{{toAbsolute this.path }}" rel="bookmark">{{ this.title }}</a>
           </h2>
           <article class="entry-summary">
               {{{ this.excerpt }}}
           </article>
           <footer>
 
-              <a href="{{ urlPrefix }}/{{ this.path }}" class="button">Read More</a>
+              <a href="{{toAbsolute this.path }}" class="button">Read More</a>
           </footer>
       </li>
     {{/each}}
@@ -20,11 +20,11 @@
     {{#if pagination}}
         <nav class="pagination">
             {{#if pagination.previous}}
-                <a href="{{urlPrefix}}/{{ pagination.previous.path }}">&lt; Prev</a>
+                <a href="{{toAbsolute pagination.previous.path }}">&lt; Prev</a>
             {{/if}}
 
             {{#if pagination.next}}
-                <a href="{{urlPrefix}}/{{ pagination.next.path }}">Next &gt;</a>
+                <a href="{{toAbsolute pagination.next.path }}">Next &gt;</a>
             {{/if}}
         </nav>
     {{/if}}
