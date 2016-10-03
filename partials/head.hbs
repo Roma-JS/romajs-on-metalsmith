@@ -4,5 +4,5 @@
   <link rel="shortcut icon" type="image/x-icon" href="{{toAbsolute 'favicon.ico'}}" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-  <title>{{pageTitle}} - RomaJS</title>
+  <title>{{#if pageTitle}}{{pageTitle}}{{else}}{{title}}{{/if}} - RomaJS</title>
 </head>
