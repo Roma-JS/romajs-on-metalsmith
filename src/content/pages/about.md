@@ -13,7 +13,6 @@ organizers:
   "Luca Lanziani": "https://twitter.com/lucalanziani"
 ---
 
-# {{title}}
 [[EN]](#EN) - [[IT]](#IT)
 
 ---

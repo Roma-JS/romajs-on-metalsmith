@@ -19,14 +19,13 @@ body {
 .romajs-nav-list {
   @extend .list-inline;
 
-  height: 50px;
   margin-bottom: 0;
   text-align: center;
 
   > li {
     font-size: $font-size-h4;
     line-height: 50px;
-    margin: 0 20px;
+    margin: 0 15px;
     text-transform: uppercase;
 
     a {
