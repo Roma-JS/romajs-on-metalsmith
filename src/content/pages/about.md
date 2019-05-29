@@ -9,7 +9,7 @@ founder:
   year: 2013
 organizers:
   "Matteo Manchi": "https://twitter.com/matteomanchi"
-  "Gabriele Marazzi": "https://twitter.com/gabrielem/"
+  "Marco Liberati": "https://twitter.com/dej611"
   "Luca Lanziani": "https://twitter.com/lucalanziani"
 ---
 
