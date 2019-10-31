@@ -14,7 +14,7 @@
     "metalsmith-register-helpers": "^0.2.0"
   },
   "devDependencies": {
-    "eslint": "^1.9.0",
+    "eslint": "^6.6.0",
     "handlebars": "^4.0.5",
     "harmonize": "^1.4.4",
     "metalsmith": "^2.1.0",
